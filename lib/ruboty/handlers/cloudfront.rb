@@ -63,7 +63,7 @@ module Ruboty
       def purge_url(message)
         uri = URI.parse(message[:url])
 
-        dist = prefixes.bsearch { |p| p[0] == uri.host }
+        dist = prefixes.find { |p| p[0] == uri.host }
 
         unless dist
           message.reply('Distribution not found')
